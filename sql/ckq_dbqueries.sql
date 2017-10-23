@@ -46,7 +46,7 @@ left outer join Vehicles as V
 	on V.VehicleID = S.VehicleID;
 
 
-/** A Query that uses Subqueries: Employees who have below average Toyota sales. **/
+/** A Query that uses Subqueries: Employees who have below average sales. **/
 
 SELECT E.FirstName, E.LastName, SUM(S.SaleTotal) AS Total_Sales
 FROM Employees AS E 
