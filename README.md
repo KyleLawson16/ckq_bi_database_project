@@ -6,7 +6,7 @@ We are using an imaginary car dealership for this assignment, CKQ Dealership. Th
 
 ## Entities, Attributes, and their Relationships:
 
-![Alt text](static/img/entities.jpg?raw=true "Title")
+![Alt text](static/img/entities.JPG?raw=true "Title")
 
 ## Entity Relationship Diagram of CKQ Dealership's Database:
 
