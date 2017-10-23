@@ -44,3 +44,12 @@ select V.Make,
 from Sales as S
 left outer join Vehicles as V
 	on V.VehicleID = S.VehicleID;
+
+
+/** A Query that uses Subqueries: Employees who have below average Toyota sales. **/
+
+SELECT E.FirstName, E.LastName, SUM(S.SaleTotal) AS Total_Sales
+FROM Employees AS E 
+INNER JOIN Sales AS S ON E.EmployeeID = S.EmployeeID
+GROUP BY E.FirstName, E.LastName
+HAVING SUM(S.SaleTotal) < (SELECT AVG(S.SaleTotal) FROM Sales AS S);
