@@ -1,6 +1,9 @@
 CREATE DATABASE CKQDealership;
 GO
 
+USE CKQDealership;
+GO
+
 CREATE TABLE Sales(
   SaleID int NOT NULL PRIMARY KEY,
   CustomerID int NOT NULL,
@@ -10,7 +13,7 @@ CREATE TABLE Sales(
   SaleDate datetime NOT NULL);
 
 CREATE TABLE Customers(
-  CustomerID bigint NOT NULL PRIMARY KEY,
+  CustomerID int NOT NULL PRIMARY KEY,
   FirstName varchar(50) NOT NULL,
   LastName varchar(50)NOT NULL,
   CustomerAddress varchar(50) NOT NULL,
@@ -37,25 +40,12 @@ ALTER TABLE Sales ADD CONSTRAINT FK_Sales_Customer
 FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
 
 ALTER TABLE Sales ADD CONSTRAINT FK_Sales_Employee
-FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID);
+FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID);
 
 ALTER TABLE Sales ADD CONSTRAINT FK_Sales_Vehicles 
-FOREIGN KEY (VehicleID) REFERENCES Vehicle(VehicleID);
+FOREIGN KEY (VehicleID) REFERENCES Vehicles(VehicleID);
 
 GO
-
-
-INSERT INTO Sales (SaleID, CustomerID, EmployeeID, VehicleID, SaleTotal, SaleDate) VALUES
-(1, 1, 1, 1, 14545, '2015-02-08 09:53:56.223'),
-(2, 2, 2, 2, 5423, '2015-02-10 09:53:56.223'),
-(3, 3, 3, NULL, 25332, '2016-03-20 09:53:56.223'),
-(4, 4, 4, 4, 34012, '2016-05-02 09:53:56.223'),
-(5, 5, 5, 5, 24310, '2016-05-25 09:53:56.223'),
-(6, 6, 6, NULL, 18908, '2017-01-05 09:53:56.223'),
-(7, 7, 7, NULL, 28093, '2017-04-12 09:53:56.223'),
-(8, 8, 8, 8, 21034, '2017-05-02 09:53:56.223'),
-(9, 9, 9, 9, 34123, '2017-08-22 09:53:56.223'),
-(10, 10, 10, 10, 9837, '2017-10-20 09:53:56.223');
 
 INSERT INTO Customers (CustomerID, FirstName, LastName, CustomerAddress, Age) VALUES 
 (1, 'Jason', 'Lee', '60 North Greenwitch Rd', 23),
@@ -93,5 +83,17 @@ INSERT INTO Vehicles(VehicleID, Make, Model, YearMade, Price) VALUES
 (8, 'Toyota', 'Prius', 2014, 22000),
 (9, 'Audi', 'A5', 2015, 38000),
 (10, 'Toyota', 'Highlander', 2012, 10000);
+
+INSERT INTO Sales (SaleID, CustomerID, EmployeeID, VehicleID, SaleTotal, SaleDate) VALUES
+(1, 1, 1, 1, 14545, '2015-02-08 09:53:56.223'),
+(2, 2, 2, 2, 5423, '2015-02-10 09:53:56.223'),
+(3, 3, 3, NULL, 25332, '2016-03-20 09:53:56.223'),
+(4, 4, 4, 4, 34012, '2016-05-02 09:53:56.223'),
+(5, 5, 5, 5, 24310, '2016-05-25 09:53:56.223'),
+(6, 6, 6, NULL, 18908, '2017-01-05 09:53:56.223'),
+(7, 7, 7, NULL, 28093, '2017-04-12 09:53:56.223'),
+(8, 8, 8, 8, 21034, '2017-05-02 09:53:56.223'),
+(9, 9, 9, 9, 34123, '2017-08-22 09:53:56.223'),
+(10, 10, 10, 10, 9837, '2017-10-20 09:53:56.223');
 
 GO
